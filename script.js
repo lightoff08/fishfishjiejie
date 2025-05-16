@@ -1,20 +1,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     // 葉片飄落特效
-    function createLeaf() {
-        const leaf = document.createElement('div');
-        leaf.style.cssText = `
-            position: fixed;
-            left: ${Math.random() * 100}vw;
-            top: -50px;
-            font-size: 24px;
-            pointer-events: none;
-            animation: leafFall ${Math.random() * 3 + 5}s linear infinite;
-        `;
-        leaf.innerHTML = '🍂';
-        document.querySelector('.heart-container').appendChild(leaf);
-        setTimeout(() => leaf.remove(), 8000);
-    }
-    setInterval(createLeaf, 800);
+
 
     // 展開信件功能 (核心修复部分)
     const readMoreBtn = document.querySelector('.read-more');
