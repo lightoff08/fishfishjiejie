@@ -1,0 +1,185 @@
+/* style.css */
+body {
+    background: linear-gradient(135deg, #f5f3e4 0%, #e8dfc8 100%);
+    font-family: 'Microsoft JhengHei', sans-serif;
+    line-height: 1.8;
+    overflow-x: hidden;
+}
+
+.container {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 20px;
+}
+
+.fade-in {
+    animation: gentleAppear 2s ease-out;
+}
+
+@keyframes gentleAppear {
+    from { opacity: 0; transform: translateY(20px); }
+    to { opacity: 1; transform: translateY(0); }
+}
+
+.memory-box {
+    display: flex;
+    gap: 40px;
+    margin: 5% 0;
+    align-items: center;
+}
+
+.photo-frame {
+    position: relative;
+    width: 300px;  /* 調整寬度讓相框更平衡 */
+    height: 400px; /* 微調高度配合常見照片比例 */
+    background: #fff9f0;
+    border: 15px double #e0d5c3; /* 改為雙層邊框增加質感 */
+    box-shadow: 8px 8px 25px rgba(0,0,0,0.1); /* 加深陰影層次 */
+    margin: 15px;
+    transition: transform 0.3s ease; /* 添加懸浮互動效果 */
+    cursor: pointer;
+}
+.photo-frame:hover {
+    transform: rotateZ(-2deg) scale(1.02); /* 懸浮時輕微旋轉放大 */
+    box-shadow: 12px 12px 30px rgba(0,0,0,0.15); /* 懸浮陰影強化 */
+}
+
+.family-photo {
+    width: 90%;
+    height: 90%;
+    margin: 5%;
+    background: url('family-photo.jpg') center/cover;
+    filter: grayscale(0.1);
+}
+
+.journal {
+    background: rgba(255,255,255,0.9);
+    padding: 30px;
+    border-left: 5px solid #d4b996;
+    box-shadow: 4px 4px 15px rgba(0,0,0,0.05);
+}
+
+.read-more {
+    background: #9fb8a3;
+    color: #fff;
+    padding: 10px 25px;
+    border-radius: 4px;
+    transition: 0.3s;
+    font-size: 16px;
+    border: 2px solid #8fa893;
+}
+
+.read-more:hover {
+    background: #8fa893;
+    transform: translateX(10px);
+}
+
+.signature {
+    color: #7a6f5e;
+    border-top: 2px dashed #d4b996;
+    padding-top: 20px;
+}
+
+.leaf-container {
+    position: fixed;
+    pointer-events: none;
+    z-index: -1;
+}
+/* 添加以下内容到 style.css */
+.hidden-content {
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.8s ease-out;
+}
+
+.hidden-content.visible {
+    max-height: 2000px;
+}
+
+.read-more {
+    position: relative;
+    transition: all 0.3s ease;
+}
+
+.read-more:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 5px 15px rgba(159, 184, 163, 0.3);
+}
+
+.hidden-content p {
+    opacity: 0;
+    transform: translateY(10px);
+    transition: all 0.6s ease;
+}
+
+.hidden-content.visible p {
+    opacity: 1;
+    transform: translateY(0);
+}
+/* Add to style.css */
+
+/* Container for the two photo frames */
+.photo-frames-container {
+    display: flex; /* Allows frames to sit side-by-side */
+    justify-content: space-around; /* Distributes space around frames */
+    align-items: flex-start; /* Aligns frames to the top */
+    gap: 20px; /* Adds some space between the frames */
+    flex-wrap: wrap; /* Allows frames to wrap if not enough space */
+    margin-bottom: 20px; /* Adds some space below the frames before the message */
+}
+
+/* Adjustments for individual photo frames if needed, 
+   they will inherit .photo-frame styles by default */
+.photo-frame {
+    position: relative;
+    width: 280px; /* Slightly reduce width to fit two side-by-side comfortably */
+    height: 380px; /* Adjust height proportionally or as needed */
+    background: #fff9f0;
+    border: 10px solid #e0d5c3; /* Slightly reduce border */
+    box-shadow: 6px 6px 15px rgba(0,0,0,0.08); /* Adjust shadow */
+    margin: 10px; /* Add some margin around each frame */
+}
+
+/* Style for the placeholder image if you add <img> tags */
+.polaroid-image {
+    width: 100%;
+    height: 100%;
+    object-fit: cover; /* Ensures the image covers the frame without distortion */
+}
+
+/* Style for the caption below the photo */
+.caption {
+    text-align: center;
+    font-size: 1.1em;
+    color: #6a5c48; /* 調整文字顏色更協調 */
+    margin: 15px 0;
+    font-family: 'Microsoft JhengHei', cursive; /* 使用手寫字體 */
+}
+
+/* You might need to adjust the .memory-box if the layout changes significantly */
+.memory-box {
+    display: flex;
+    flex-direction: column; /* Stack photo container and message vertically */
+    /* Or, if you want photo frames and message side-by-side, adjust accordingly: */
+    /* flex-direction: row; */
+    gap: 30px; /* Adjust gap as needed */
+    margin: 5% 0;
+    align-items: center;
+}
+
+/* Ensure the .message bubble takes appropriate width */
+.message.bubble {
+    flex-grow: 1; /* Allows message to take available space if memory-box is row */
+    max-width: 600px; /* Or whatever width suits your design */
+}
+
+/* 添加響應式設計 */
+@media (max-width: 768px) {
+    .photo-frames-container {
+        flex-direction: column; /* 小屏幕時垂直排列 */
+    }
+    .photo-frame {
+        width: 85vw; /* 手機版佔滿寬度 */
+        height: 110vw; /* 保持比例 */
+    }
+}
