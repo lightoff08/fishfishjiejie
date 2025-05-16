@@ -183,3 +183,13 @@ body {
         height: 110vw; /* 保持比例 */
     }
 }
+
+.heart-container {
+    position: fixed;
+    z-index: 9999; /* 確保最高層級 */
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    pointer-events: none; /* 保持穿透點擊 */
+}
